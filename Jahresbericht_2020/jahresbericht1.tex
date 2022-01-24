@@ -1,0 +1,212 @@
+\documentclass[11pt,letterpaper, oneside, headings=normal,final]{article}
+
+
+\usepackage[paper=a4paper,left=2cm,right=2cm,top=2.5cm,bottom=2cm]{geometry}
+\usepackage[english,ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{verbatim}
+
+\usepackage{ifthen}
+\usepackage{fancyhdr}
+\usepackage{color}
+
+\usepackage{placeins}
+\usepackage{amssymb}
+\usepackage{amsmath} 
+\usepackage{graphicx}
+
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[figure,table]{hypcap}
+
+\usepackage{pgf,tikz}
+\usepackage{mathrsfs}
+\usepackage{setspace}
+\usetikzlibrary[patterns]
+\usepackage{pdfpages}
+
+\usepackage{multirow}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Farben für Hyperlinks z.B.
+\definecolor{lt_gray}{rgb}{.8,.8,.8}
+\definecolor{red}{rgb}{.90196,.0,.2}
+%\definecolor{green2}{rgb}{0,.5,.0}
+%\definecolor{myblue}{rgb}{.27,.51,.71} % 69 130 181
+\definecolor{myblue}{rgb}{0,.5,.0}
+\definecolor{green2}{rgb}{.27,.51,.71}
+%
+\newcommand{\Th}{\mathcal{T}_h}
+\newcommand{\OmegaBg}{\widehat{\Omega}}
+\newcommand{\ThBg}{\widehat{\mathcal{T}_h}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{pdftitle={},%
+pdfauthor={Hannes Ruelmann},%
+colorlinks=true,%
+linkcolor={myblue},%
+anchorcolor={black},%
+citecolor={green2},%
+filecolor={magenta},%
+menucolor={red},%
+urlcolor={cyan},%
+pdfstartview={Fit},
+pdfpagemode={UseOutlines},
+draft=true}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abstände
+\parskip1ex plus.2ex minus.2ex    % Abstand zwischen Abs"atzen: ca. H"ohe von "x"
+\renewcommand{\baselinestretch}{0.95} % Eineinzwanzigstelzeilig
+\frenchspacing                  % Kein Mehrabstand nach Satzende
+\setcounter{secnumdepth}{4} % Durchnumerieren bis subsubsection
+\setcounter{tocdepth}{4} % Durchnumerieren bis subsubsection
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EinrückTiefe der ersten Zeile für alle folgenden Absätze
+\parindent0cm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{lastpage}
+\usepackage{colortbl}
+\usepackage{arydshln}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand\headrulewidth{0pt}
+\cfoot{\thepage{} von \pageref{LastPage}}
+
+\definecolor{light-gray}{gray}{0.95}
+
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+\begin{document}
+{\begin{center}
+\begin{tabular}{c}
+{\huge \textbf{Jahresbericht}}\\
+{\huge \textbf{im strukturierten Promotionsstudiengang}}
+\end{tabular}
+\\[0.2cm]
+\begin{tabular}{c}
+{\large Erster Bericht (15.01.19 - 14.01.20)}\\[0.2cm]
+vorgelegt von Florian Streitbürger
+\end{tabular}
+\\[0.2cm]
+
+\ \\
+\begin{tabular}{ll}
+Mat.Nr.: 165759,& E-Mail: \href{mailto:florian.streitbuerger@math.tu-dortmund.de}{\nolinkurl{{florian.streitbuerger@math.tu-dortmund.de}}}\\			 
+\end{tabular}
+\end{center}}
+\vspace{1cm}
+\section{Forschung}
+Ich habe mich im vergangenen Jahr unter Betreuung von JProf. Dr. Sandra May mit neuen Möglichkeiten zur Stabilisierung von unstetigen Galerkin Verfahren beschäftigt, die zum Lösen von hyperbolischen Erhaltungsgleichungen auf sogenannten Cut-Cell-Gittern verwendet werden. Unter Cut-Cell-Gittern verstehen wir hierbei Gitter, die entstehen wenn man das zu untersuchende Objekt aus einem äquidistanten Gitter hinausschneidet (vgl. Abb. \ref{fig:mesh-geom-intersect}). Dabei entstehen am Rand sogenannte Cut-Cells, die verschiedene Formen annehmen und beliebig klein werden können. Dadurch kommt es beim Lösen auf diesen Cut-Cells zu Instabilitäten. Das größte Problem bei hyperbolischen Erhaltungsgleichungen ist das sogenannte \textit{Kleine-Zelle-Problem} (engl. small cell problem). Der Hintergrund des Ganzen ist, dass man zum Lösen von hyperbolischen Erhaltungsgleichungen explizite Zeitschrittverfahren verwendet. Diese unterliegen bei der Wahl der Zeitschrittweite der CFL-Bedingung. Diese besagt, dass man die Zeitschrittweite gemäß des Ortsgitters wählen muss. Wenn die Cut-Cells nun beliebig klein werden können, ist dies nicht mehr möglich. Daher wählt man die Zeitschrittweite gemäß des kartesischen Hintergrundgitters und versucht die Instabilitäten, die durch eine zu große Zeitschrittweite auf den kleinen Cut-Cells entstehen, mit geeigneten Stabilitätstermen zu neutralisieren.  \\
+\FloatBarrier
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[scale=2.5]
+    \node at (.75,1.15) {\footnotesize$\ThBg(\OmegaBg)$};
+    \draw[semithick,step=0.25] (0,0) grid (1.5,1);
+    \node at (1.9,0.5) {\huge$\cap$};
+\begin{scope}[xshift=2.3cm]
+    \node at (.75,1.15) {\footnotesize$\Omega$};
+    \draw[semithick,fill=black!10!white]
+    (0.0,0.0) --
+    (0.3,0.0) --
+    (0.5,0.03) --
+    (0.75,0.132647574033) --
+    (0.867352425967,0.25) --
+    (0.98,0.5) --
+    (1.0,0.52) --
+    (1.25,0.68) --
+    (1.5,0.7) --
+    (1.5,1.0) --
+    (0.0,1.0) --
+    (0.0,0.0);
+\end{scope}
+    \node at (4.2,0.5) {\huge$\rightarrow$};
+\begin{scope}[xshift=4.6cm]
+    \node at (.75,1.15) {\footnotesize$\Th(\Omega)$};
+    \draw[semithick,step=0.25] (0,0) grid (1.5,1);
+    \fill[white] (0.3,0.0) --
+      (0.5,0.03) --
+      (0.75,0.132647574033) --
+      (0.867352425967,0.25) --
+      (0.98,0.5) --
+      (1.0,0.52) --
+      (1.25,0.68) --
+      (1.5,0.7) --
+      (1.51,0.7) --
+      (1.51,-0.01) --
+      (0.3,-0.01);
+    \draw[semithick]
+    (0.0,0.0) --
+    (0.3,0.0) --
+    (0.5,0.03) --
+    (0.75,0.132647574033) --
+    (0.867352425967,0.25) --
+    (0.98,0.5) --
+    (1.0,0.52) --
+    (1.25,0.68) --
+    (1.5,0.7) --
+    (1.5,1.0) --
+    (0.0,1.0) --
+    (0.0,0.0);
+\end{scope}
+\end{tikzpicture}
+  \caption{Konstruktion eines Cut-Cell-Gitters $\Th(\Omega)$: Aus dem Hintergrundgitter $\ThBg$ eines größeren Gebiets
+    $\OmegaBg$ wird das Simulationsgebiet $\Omega$ ausgeschnitten.
+    Hierbei entstehen sog. Cut-Cells $E = \widehat E \cap \Omega$, wobei $\widehat
+    E \in \ThBg$ eine kartesische Hintergrundzelle ist. (Quelle: \cite{paper})}
+  \label{fig:mesh-geom-intersect}
+\end{figure}
+In diesem Rahmen wurden in Zusammenarbeit mit Prof. Dr. Christian Engwer von der WWU Münster die Stabilitätsterme für stückweise konstante Ansatzfunktionen, die bereits in meiner Masterarbeit bei JProf. Dr. Sandra May für eine Dimension erarbeitet und anschließend theoretisch und numerisch verifiziert wurden, auf den zweidimensionalen Fall übertragen. Hierbei wurde die C++-Bibliothek \textbf{Dune} verwendet, die von Christian Engwer mitentwickelt wurde und bereits eine gute Infrastruktur für Cut-Cell-Gitter liefert. Gleichzeitig wurden im Eindimensionalen sowohl die Wahl des Vorfaktors der Stabilisierungsterme untersucht als auch Stabilitätsterme für stückweise lineare Ansatzfunktionen entwickelt. Hierfür konnte theoretisch bewiesen werden, dass das Verfahren für stückweise lineare Funktionen unter Hinzunahme eines geeigneten Limiters eine \textit{TVDM}(total variation diminishing in the means)-Eigenschaft erfüllt. Anschließend konnten diese Stabilitätsterme ebenfalls erfolgreich ins Zweidimensionale erweitert werden. In den numerischern Tests in einer sowie zwei Dimensionen weisen die Verfahren für beliebig kleine Cut-Cells keinerlei Instabilitäten auf. Die Fehlerordnungen liegen ebenfalls in den für Cut-Cells typischen Bereichen. Die Ergebnisse wurden im Anschluss in einem Paper sowie einem Proceeding zusammengefasst und sind unter \cite{paper,proceeding} zu finden.\\
+Weiterhin wurden die Ziele definiert, die Stabilitätsterme für höhere Polynomgrade sowie nicht-lineare Erhaltungsgleichungen zu erweitern. Hierbei liegt der Fokus auf den Euler-Gleichungen, wobei der erste Schritt die Burgers-Gleichung sein wird. Bei diesem gemeinsamen Projekt wird ein ständiger Austausch mit Christian Engwer aus Münster stattfinden.
+ Als großes Ziel setzen wir uns Euler-Gleichungen in zwei Dimensionen für beliebig hohe Polynomgrade. 
+\begin{thebibliography}{99.}
+\bibitem{paper}      
+C. Engwer, S. May, C. N\"u\ss ing, and F. Streitb\"urger,
+      \newblock A stabilized discontinuous Galerkin cut cell method for discretizing the linear transport equation.
+      \newblock arXiv:1906.05642,
+      \newblock (2019)
+\bibitem{proceeding}      
+F. Streitb\"urger, C. Engwer, S. May, and C. N\"u\ss ing,
+      \newblock Monotonicity considerations for stabilized DG cut cell schemes for the unsteady advection equation
+      \newblock arXiv:1912.11933,
+      \newblock (2019)
+\end{thebibliography}
+
+
+\section{Leistungen im Promotionsstudiengang}
+
+\begin{tabular}{l|l|l|l|l}
+ \hline 
+    \rowcolor{gray!30}
+ & \textbf{Semester/}  &  &  \textbf{Name des} &  \\
+    \rowcolor{gray!30}    \multirow{-2}{*}{\textbf{Leistung}} & \textbf{Jahr} & \multirow{-2}{*}{\textbf{Anl.}} & \textbf{Veranstalters} & \multirow{-2}{*}{\textbf{Unterschrift}} \\
+\hline \hline
+    \rowcolor{light-gray}  \multicolumn{5}{c}{\textbf{Promotionsnahe Leistungen}} \\
+\hline \hline
+& & & & \\
+\multirow{-2}{*}{\textit{Teilnahme Konferenz:} Finite Volumes } & && &\\
+\multirow{-2}{*}{ for Complex Applications IX} & \multirow{-2}{*}{Juni 20} & \multirow{-2}{*}{} & \multirow{-2}{*}{-} & \\
+\hdashline
+& & & & \\
+\multirow{-2}{*}{\textit{Publikation:} A stabilized DG} & && &\\
+\multirow{-2}{*}{ cut cell method for discretizing the} & & & &\\
+\multirow{-2}{*}{ linear transport equation} & \multirow{-2}{*}{Dezember 20} & \multirow{-2}{*}{ } & \multirow{-2}{*}{-} & \\
+
+    \rowcolor{light-gray}  \multicolumn{5}{c}{\textbf{Leistungen	wissenschaftlicher	Weiterbildung}} \\
+\hline \hline
+& & & & \\
+    \rowcolor{light-gray}   \multicolumn{5}{c}{\textbf{Erwerb	überfachlicher Kompentenzen}} \\
+\hline \hline
+ & & & & \\
+\multirow{-2}{*}{\textit{Tutor:} Numerik II} & \multirow{-2}{*}{SS 19} & \multirow{-2}{*}{ } & \multirow{-2}{*}{C. Kreuzer} & \\ 
+\hline
+\end{tabular}
+
+\vfill
+\hrulefill\hfill\hrulefill\\
+\hspace*{0.8cm}(JProf. Dr. Sandra May)\hfill(Florian Streitb\"urger)\hspace{1.6cm} 
+
+\end{document}
+
