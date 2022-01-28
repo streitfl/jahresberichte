@@ -1,0 +1,175 @@
+\documentclass[11pt,letterpaper, oneside, headings=normal,final]{article}
+
+
+\usepackage[paper=a4paper,left=2cm,right=2cm,top=2.5cm,bottom=2cm]{geometry}
+\usepackage[english,ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{verbatim}
+
+\usepackage{ifthen}
+\usepackage{fancyhdr}
+\usepackage{color}
+
+\usepackage{placeins}
+\usepackage{amssymb}
+\usepackage{amsmath} 
+\usepackage{graphicx}
+
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[figure,table]{hypcap}
+
+\usepackage{pgf,tikz}
+\usepackage{mathrsfs}
+\usepackage{setspace}
+\usetikzlibrary[patterns]
+\usepackage{pdfpages}
+
+\usepackage{multirow}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Farben für Hyperlinks z.B.
+\definecolor{lt_gray}{rgb}{.8,.8,.8}
+\definecolor{red}{rgb}{.90196,.0,.2}
+%\definecolor{green2}{rgb}{0,.5,.0}
+%\definecolor{myblue}{rgb}{.27,.51,.71} % 69 130 181
+\definecolor{myblue}{rgb}{0,.5,.0}
+\definecolor{green2}{rgb}{.27,.51,.71}
+%
+\newcommand{\Th}{\mathcal{T}_h}
+\newcommand{\OmegaBg}{\widehat{\Omega}}
+\newcommand{\ThBg}{\widehat{\mathcal{T}_h}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{pdftitle={},%
+pdfauthor={Florian Streitbürger},%
+colorlinks=true,%
+linkcolor={myblue},%
+anchorcolor={black},%
+citecolor={green2},%
+filecolor={magenta},%
+menucolor={red},%
+urlcolor={cyan},%
+pdfstartview={Fit},
+pdfpagemode={UseOutlines},
+draft=true}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abstände
+\parskip1ex plus.2ex minus.2ex    % Abstand zwischen Abs"atzen: ca. H"ohe von "x"
+\renewcommand{\baselinestretch}{0.95} % Eineinzwanzigstelzeilig
+\frenchspacing                  % Kein Mehrabstand nach Satzende
+\setcounter{secnumdepth}{4} % Durchnumerieren bis subsubsection
+\setcounter{tocdepth}{4} % Durchnumerieren bis subsubsection
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EinrückTiefe der ersten Zeile für alle folgenden Absätze
+\parindent0cm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{lastpage}
+\usepackage{colortbl}
+\usepackage{arydshln}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand\headrulewidth{0pt}
+\cfoot{\thepage{} von \pageref{LastPage}}
+
+\definecolor{light-gray}{gray}{0.95}
+
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+\begin{document}
+{\begin{center}
+\begin{tabular}{c}
+{\huge \textbf{Jahresbericht}}\\
+{\huge \textbf{im strukturierten Promotionsstudiengang}}
+\end{tabular}
+\\[0.2cm]
+\begin{tabular}{c}
+{\large Dritter Bericht (15.01.21 - 14.01.22)}\\[0.2cm]
+vorgelegt von Florian Streitbürger
+\end{tabular}
+\\[0.2cm]
+
+\ \\
+\begin{tabular}{ll}
+Mat.Nr.: 165759,& E-Mail: \href{mailto:florian.streitbuerger@math.tu-dortmund.de}{\nolinkurl{{florian.streitbuerger@math.tu-dortmund.de}}}\\			 
+\end{tabular}
+\end{center}}
+\vspace{1cm}
+\section{Forschung}
+\begin{itemize}
+\item Zunächst L2 Stabilität für nicht-lineare skalare Erhaltungsgleichungen bewiesen. 
+\item Parallel an der Erweiterung für Systeme gearbeitet. Zunächst an linearen Systemen getestet + Wellengleichung
+\item Anschließend erweitert auf Euler-Gleichungen -> Numerische Ergebnisse sehen gut aus. Allerdings noch keine theoretischen Resultate. Hier wäre entropie stabilität interessant
+\item Ergebnisse zusammengetragen in Paper 
+\item Damit befasst mehrere kleine Zellen hintereinander in 1D
+\item Weitere Projekte: Limiter auf Cut Cells -> Forschung hier noch nicht sehr weiter. Es gibt keine Limiter höherer Ordnung auf Cut Cells. 
+\item Weiterentwicklung der Methode in 2D. Lineare Advektion für höhere Polynomgrade scheint zu funktionieren -> Nur erste ergebnisse..
+\end{itemize}
+
+\begin{thebibliography}{99.}
+\bibitem{paper}      
+C. Engwer, S. May, C. N\"u\ss ing, and F. Streitb\"urger,
+      \newblock A stabilized discontinuous Galerkin cut cell method for discretizing the linear transport equation.
+      \newblock arXiv:1906.05642,
+      \newblock (2019)
+\bibitem{proceeding}      
+F. Streitb\"urger, C. Engwer, S. May, and C. N\"u\ss ing,
+      \newblock Monotonicity considerations for stabilized DG cut cell schemes for the unsteady advection equation
+      \newblock arXiv:1912.11933,
+      \newblock (2019)
+\end{thebibliography}
+
+\newpage
+\section{Leistungen im Promotionsstudiengang}
+
+\begin{tabular}{l|l|l|l|l}
+ \hline 
+    \rowcolor{gray!30}
+ & \textbf{Semester/}  &  &  \textbf{Name des} &  \\
+    \rowcolor{gray!30}    \multirow{-2}{*}{\textbf{Leistung}} & \textbf{Jahr} & \multirow{-2}{*}{\textbf{Anl.}} & \textbf{Veranstalters} & \multirow{-2}{*}{\textbf{Unterschrift}} \\
+\hline \hline
+    \rowcolor{light-gray}  \multicolumn{5}{c}{\textbf{Promotionsnahe Leistungen}} \\
+\hline \hline
+& & & & \\
+\multirow{-2}{*}{\textit{Teilnahme Konferenz:} SIAM Conference} & && &\\
+\multirow{-2}{*}{ on Computational Science} & \multirow{-2}{*}{März 21} & \multirow{-2}{*}{} & \multirow{-2}{*}{-} & \\
+\hdashline
+& & & & \\
+\multirow{-2}{*}{\textit{Teilnahme:} Oberseminar LSIII}  & \multirow{-2}{*}{SS 21} & \multirow{-2}{*}{} & \multirow{-2}{*}{-} & \\
+\hdashline
+& & & & \\
+\multirow{-2}{*}{\textit{Präsentation:} ICOSAHOM 2020} \multirow{-2}{*}{} & \multirow{-2}{*}{Juli 21} & \multirow{-2}{*}{} & \multirow{-2}{*}{-} & \\
+\hdashline
+& & & & \\
+\multirow{-2}{*}{\textit{Präsentation:} Hirschegg Workshop} & && &\\
+\multirow{-2}{*}{On Conservation Laws} & \multirow{-2}{*}{September 21} & \multirow{-2}{*}{} & \multirow{-2}{*}{-} & \\
+\hdashline
+& & & & \\
+\multirow{-2}{*}{\textit{Publikation:} DoD Stabilization for} & && &\\
+\multirow{-2}{*}{ non-linear hyperbolic conservation laws} &  \multirow{-2}{*}{Dezember 21} & & \multirow{-2}{*}{-} &\\
+\multirow{-2}{*}{ on cut cell meshes in one dimension} & & \multirow{-2}{*}{ } &  & \\
+    \rowcolor{light-gray}  \multicolumn{5}{c}{\textbf{Leistungen	wissenschaftlicher	Weiterbildung}} \\
+\hline \hline
+& & & & \\
+\multirow{-2}{*}{\textit{Teilnahme:} Limiter-Techniken für} & && &\\
+\multirow{-2}{*}{ numerische Verfahren hoher Ordnung} & \multirow{-2}{*}{WS 20/21} & \multirow{-2}{*}{} & \multirow{-2}{*}{D. Kuzmin} & \\
+\hdashline
+    \rowcolor{light-gray}   \multicolumn{5}{c}{\textbf{Erwerb	überfachlicher Kompentenzen}} \\
+\hline \hline
+ & & & & \\
+\multirow{-2}{*}{\textit{Tutor:} Neuronale Netze für (hyp.)} & \multirow{-2}{*}{} & \multirow{-2}{*}{ } & \multirow{-2}{*}{} & \\ 
+\multirow{-2}{*}{ partielle Differentialgleichungen} & \multirow{-2}{*}{SS 21} & \multirow{-2}{*}{ } & \multirow{-2}{*}{S. May} & \\ 
+\hdashline
+ & & & & \\
+\multirow{-2}{*}{\textit{Tutor:} COP-Kurs} & \multirow{-2}{*}{SS 21} & \multirow{-2}{*}{ } & \multirow{-2}{*}{S. May} & \\ 
+\hline
+\end{tabular}
+
+\vfill
+\hrulefill\hfill\hrulefill\\
+\hspace*{0.8cm}(JProf. Dr. Sandra May)\hfill(Florian Streitb\"urger)\hspace{1.6cm} 
+
+\end{document}
+
