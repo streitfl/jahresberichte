@@ -98,27 +98,29 @@ Mat.Nr.: 165759,& E-Mail: \href{mailto:florian.streitbuerger@math.tu-dortmund.de
 \end{center}}
 \vspace{1cm}
 \section{Forschung}
-\begin{itemize}
-\item Zunächst L2 Stabilität für nicht-lineare skalare Erhaltungsgleichungen bewiesen. 
-\item Parallel an der Erweiterung für Systeme gearbeitet. Zunächst an linearen Systemen getestet + Wellengleichung
-\item Anschließend erweitert auf Euler-Gleichungen -> Numerische Ergebnisse sehen gut aus. Allerdings noch keine theoretischen Resultate. Hier wäre entropie stabilität interessant
-\item Ergebnisse zusammengetragen in Paper 
-\item Damit befasst mehrere kleine Zellen hintereinander in 1D
-\item Weitere Projekte: Limiter auf Cut Cells -> Forschung hier noch nicht sehr weiter. Es gibt keine Limiter höherer Ordnung auf Cut Cells. 
-\item Weiterentwicklung der Methode in 2D. Lineare Advektion für höhere Polynomgrade scheint zu funktionieren -> Nur erste ergebnisse..
-\end{itemize}
+Im dritten Jahr des strukturierten Promotionsstudiengangs unter der Betreuung von JProf. Dr. Sandra May haben wir die DoD-Stabilisierung von der linearen Advektionsgleichung auf Systeme von nicht-linearen Erhaltungsgleichungen in einer Dimension erweitert. Bei der DoD-Stabilisierung handelt es sich um eine Stabilisierung in Form von sogenannten Bestrafungs-Termen (\textit{engl. Penalty terms}), die ein stabiles Update von hyperbolischen Erhaltungsgleichungen auf Cut Cell Gittern unter Verwendung von unstetigen Galerkin-Verfahren möglich machen. 
+
+Zu Beginn des dritten Promotionsjahres haben wir zunächst daran gearbeitet den L$^2$ Stabilitätsbeweis auf nicht-lineare skalare Erhaltungsgleichungen zu erweitern. Hierbei war es hilfreich die beiden Flussrichtungen zunächst getrennt voneinander zu betrachten, bevor wir schließlich dazu in der Lage waren die Stabilisierung geeignet anzupassen, sodass wir den Beweis für den allgemeinen Fall führen konnten.
+
+Zeitgleich haben wir die Stabilisierung von skalaren Erhaltungleichungen auf Systeme von linearen Erhaltungsgleichungen erweitert. Dabei haben wir ausgenutzt, dass die Jacobi-Matrix des Flusses bei Systemen von hyperbolischen Gleichungen stets diagonalisierbar ist. So konnten wir das lineare System mithilfe einer Transformation auf den Fall von ungekoppelten skalaren Erhaltungsgleichungen zurückführen. Mit der dazu passenden Rücktransformation war es möglich Stabilitätsterme für Systeme von linearen Erhaltungsgleichungen zu finden. 
+
+Anschließend haben wir die beiden Projekte zusammengeführt und uns Systeme nichtlinearer Erhaltungsgleichungen am Beispiel der inkompressiblen Euler-Gleichungen in 1D angeguckt. Unsere zahlreichen numerischen Tests zeigen, dass die DoD-Stabilisierung auch in diesem Setting funktioniert und ein stabiles Verhalten und die richtigen Konvergenzordnungen zeigt. In letzter Konsequenz haben wir die Ergebnisse zusammengefasst und im Laufe des Jahres in \cite{AMC2021} final veröffentlicht.
+
+Im Verlauf des Jahres haben wir uns noch mit weiteren Fragestellungen bezüglich der DoD-Stabilisierung und Cut Cell Gittern im Allgemeinen beschäftigt: Zum einen haben wir uns damit befasst inwiefern sich die Stabilisierung ändert, wenn bei einem Cut Cell Gitter mehrere kleine Cut Cells hintereinander in Flussrichtung auftreten und die Ausfluss-Zelle einer kleinen Cut Cell nicht groß genug ist, um die verteilte Masse aufzunehmen. Hierbei konnten wir erste Erfolge verbuchen und eine Formulierung für die Stabilisierung bei Verwendung von stückweise konstanten Polynomen. Bei stückweise Polynomen höheren Grades ist dieser Forschungsabschnitt allerdings noch in Arbeit. 
+
+Zum Ende des Jahres haben wir unseren Fokus auf die Entwicklung der Stabilisierung in 2D gelegt. Daraufhin wurde der Code und die Stabilisierung so umgeschrieben, dass auch Tests mit stückweisen Polynomen höherer Ordnung bei linearen Problemen möglich sind. Die numerischen Konvergenztests zeigen die zu erwartenden Konvergenzordnungen in diesen Fällen: In der L$^1$ Norm zeigen die Fehler die volle Ordnung, wohingegen bei der L$^\infty$ Norm die Fehlerraten vor allem für niedrige Polynomgrade leicht reduziert sind. 
+
+Außerdem waren wir in der Lage das L$^2$ Stabilitätsresultat aus dem eindimensionalen Fall ins Zweidimensionale zu übertragen. Das dabei entstandene theoretische Resultat haben wir zusammen mit einigen numerischen Resultaten zusammengeschrieben und eingereicht. Hier steht die Review noch aus.
+
+Für das kommende Jahr liegt unser Fokus auf nicht-linearen Gleichungen in zwei Dimensionen. Unser großes Ziel sind nach wie vor die inkompressiblen Euler-Gleichungen in zwei Dimensionen. 
+
 
 \begin{thebibliography}{99.}
-\bibitem{paper}      
-C. Engwer, S. May, C. N\"u\ss ing, and F. Streitb\"urger,
-      \newblock A stabilized discontinuous Galerkin cut cell method for discretizing the linear transport equation.
-      \newblock arXiv:1906.05642,
-      \newblock (2019)
-\bibitem{proceeding}      
-F. Streitb\"urger, C. Engwer, S. May, and C. N\"u\ss ing,
-      \newblock Monotonicity considerations for stabilized DG cut cell schemes for the unsteady advection equation
-      \newblock arXiv:1912.11933,
-      \newblock (2019)
+\vspace*{-0.05cm}
+    \bibitem{AMC2021}
+      S. May, F. Streitb\"urger
+      \newblock DoD Stabilization for non-linear hyperbolic conservation laws on cut cell meshes in one dimension. 
+      \newblock Appl. Math. Comput. 419, 2022.
 \end{thebibliography}
 
 \newpage
@@ -155,7 +157,6 @@ F. Streitb\"urger, C. Engwer, S. May, and C. N\"u\ss ing,
 & & & & \\
 \multirow{-2}{*}{\textit{Teilnahme:} Limiter-Techniken für} & && &\\
 \multirow{-2}{*}{ numerische Verfahren hoher Ordnung} & \multirow{-2}{*}{WS 20/21} & \multirow{-2}{*}{} & \multirow{-2}{*}{D. Kuzmin} & \\
-\hdashline
     \rowcolor{light-gray}   \multicolumn{5}{c}{\textbf{Erwerb	überfachlicher Kompentenzen}} \\
 \hline \hline
  & & & & \\
@@ -170,6 +171,8 @@ F. Streitb\"urger, C. Engwer, S. May, and C. N\"u\ss ing,
 \vfill
 \hrulefill\hfill\hrulefill\\
 \hspace*{0.8cm}(JProf. Dr. Sandra May)\hfill(Florian Streitb\"urger)\hspace{1.6cm} 
+
+
 
 \end{document}
 

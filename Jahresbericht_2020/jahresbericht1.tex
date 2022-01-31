@@ -86,7 +86,7 @@ draft=true}
 \end{tabular}
 \\[0.2cm]
 \begin{tabular}{c}
-{\large Erster Bericht (15.01.19 - 14.01.20)}\\[0.2cm]
+{\large Zweiter Bericht (15.01.20 - 14.01.21)}\\[0.2cm]
 vorgelegt von Florian Streitbürger
 \end{tabular}
 \\[0.2cm]
@@ -98,83 +98,27 @@ Mat.Nr.: 165759,& E-Mail: \href{mailto:florian.streitbuerger@math.tu-dortmund.de
 \end{center}}
 \vspace{1cm}
 \section{Forschung}
-Ich habe mich im vergangenen Jahr unter Betreuung von JProf. Dr. Sandra May mit neuen Möglichkeiten zur Stabilisierung von unstetigen Galerkin Verfahren beschäftigt, die zum Lösen von hyperbolischen Erhaltungsgleichungen auf sogenannten Cut-Cell-Gittern verwendet werden. Unter Cut-Cell-Gittern verstehen wir hierbei Gitter, die entstehen wenn man das zu untersuchende Objekt aus einem äquidistanten Gitter hinausschneidet (vgl. Abb. \ref{fig:mesh-geom-intersect}). Dabei entstehen am Rand sogenannte Cut-Cells, die verschiedene Formen annehmen und beliebig klein werden können. Dadurch kommt es beim Lösen auf diesen Cut-Cells zu Instabilitäten. Das größte Problem bei hyperbolischen Erhaltungsgleichungen ist das sogenannte \textit{Kleine-Zelle-Problem} (engl. small cell problem). Der Hintergrund des Ganzen ist, dass man zum Lösen von hyperbolischen Erhaltungsgleichungen explizite Zeitschrittverfahren verwendet. Diese unterliegen bei der Wahl der Zeitschrittweite der CFL-Bedingung. Diese besagt, dass man die Zeitschrittweite gemäß des Ortsgitters wählen muss. Wenn die Cut-Cells nun beliebig klein werden können, ist dies nicht mehr möglich. Daher wählt man die Zeitschrittweite gemäß des kartesischen Hintergrundgitters und versucht die Instabilitäten, die durch eine zu große Zeitschrittweite auf den kleinen Cut-Cells entstehen, mit geeigneten Stabilitätstermen zu neutralisieren.  \\
-\FloatBarrier
-\begin{figure}[h]
-  \centering
-  \begin{tikzpicture}[scale=2.5]
-    \node at (.75,1.15) {\footnotesize$\ThBg(\OmegaBg)$};
-    \draw[semithick,step=0.25] (0,0) grid (1.5,1);
-    \node at (1.9,0.5) {\huge$\cap$};
-\begin{scope}[xshift=2.3cm]
-    \node at (.75,1.15) {\footnotesize$\Omega$};
-    \draw[semithick,fill=black!10!white]
-    (0.0,0.0) --
-    (0.3,0.0) --
-    (0.5,0.03) --
-    (0.75,0.132647574033) --
-    (0.867352425967,0.25) --
-    (0.98,0.5) --
-    (1.0,0.52) --
-    (1.25,0.68) --
-    (1.5,0.7) --
-    (1.5,1.0) --
-    (0.0,1.0) --
-    (0.0,0.0);
-\end{scope}
-    \node at (4.2,0.5) {\huge$\rightarrow$};
-\begin{scope}[xshift=4.6cm]
-    \node at (.75,1.15) {\footnotesize$\Th(\Omega)$};
-    \draw[semithick,step=0.25] (0,0) grid (1.5,1);
-    \fill[white] (0.3,0.0) --
-      (0.5,0.03) --
-      (0.75,0.132647574033) --
-      (0.867352425967,0.25) --
-      (0.98,0.5) --
-      (1.0,0.52) --
-      (1.25,0.68) --
-      (1.5,0.7) --
-      (1.51,0.7) --
-      (1.51,-0.01) --
-      (0.3,-0.01);
-    \draw[semithick]
-    (0.0,0.0) --
-    (0.3,0.0) --
-    (0.5,0.03) --
-    (0.75,0.132647574033) --
-    (0.867352425967,0.25) --
-    (0.98,0.5) --
-    (1.0,0.52) --
-    (1.25,0.68) --
-    (1.5,0.7) --
-    (1.5,1.0) --
-    (0.0,1.0) --
-    (0.0,0.0);
-\end{scope}
-\end{tikzpicture}
-  \caption{Konstruktion eines Cut-Cell-Gitters $\Th(\Omega)$: Aus dem Hintergrundgitter $\ThBg$ eines größeren Gebiets
-    $\OmegaBg$ wird das Simulationsgebiet $\Omega$ ausgeschnitten.
-    Hierbei entstehen sog. Cut-Cells $E = \widehat E \cap \Omega$, wobei $\widehat
-    E \in \ThBg$ eine kartesische Hintergrundzelle ist. (Quelle: \cite{paper})}
-  \label{fig:mesh-geom-intersect}
-\end{figure}
-In diesem Rahmen wurden in Zusammenarbeit mit Prof. Dr. Christian Engwer von der WWU Münster die Stabilitätsterme für stückweise konstante Ansatzfunktionen, die bereits in meiner Masterarbeit bei JProf. Dr. Sandra May für eine Dimension erarbeitet und anschließend theoretisch und numerisch verifiziert wurden, auf den zweidimensionalen Fall übertragen. Hierbei wurde die C++-Bibliothek \textbf{Dune} verwendet, die von Christian Engwer mitentwickelt wurde und bereits eine gute Infrastruktur für Cut-Cell-Gitter liefert. Gleichzeitig wurden im Eindimensionalen sowohl die Wahl des Vorfaktors der Stabilisierungsterme untersucht als auch Stabilitätsterme für stückweise lineare Ansatzfunktionen entwickelt. Hierfür konnte theoretisch bewiesen werden, dass das Verfahren für stückweise lineare Funktionen unter Hinzunahme eines geeigneten Limiters eine \textit{TVDM}(total variation diminishing in the means)-Eigenschaft erfüllt. Anschließend konnten diese Stabilitätsterme ebenfalls erfolgreich ins Zweidimensionale erweitert werden. In den numerischern Tests in einer sowie zwei Dimensionen weisen die Verfahren für beliebig kleine Cut-Cells keinerlei Instabilitäten auf. Die Fehlerordnungen liegen ebenfalls in den für Cut-Cells typischen Bereichen. Die Ergebnisse wurden im Anschluss in einem Paper sowie einem Proceeding zusammengefasst und sind unter \cite{paper,proceeding} zu finden.\\
-Weiterhin wurden die Ziele definiert, die Stabilitätsterme für höhere Polynomgrade sowie nicht-lineare Erhaltungsgleichungen zu erweitern. Hierbei liegt der Fokus auf den Euler-Gleichungen, wobei der erste Schritt die Burgers-Gleichung sein wird. Bei diesem gemeinsamen Projekt wird ein ständiger Austausch mit Christian Engwer aus Münster stattfinden.
- Als großes Ziel setzen wir uns Euler-Gleichungen in zwei Dimensionen für beliebig hohe Polynomgrade. 
+Im zweiten Jahr meiner Promotion unter Betreuung von JProf. Dr. Sandra May habe ich mich mit der Weiterentwicklung der Stabilisierungsterme zum Lösen von hyperbolischen Erhaltungsgleichungen unter Verwendung von unstetigen Galerkin Verfahren auf Cut-Cell-Gittern beschäftigt. Zu Beginn des Jahres habe ich mich im Zuge dessen mit der Review zu \cite{May2020} beschäftigt. Hierbei war es möglich in der Formulierung der Stabilisierung einen Trajektorien-Operator, der die Trajektorien innerhalb einer Zelle von der Ausfluss- bis zur Einfluss-Kante zurückverfolgt, durch einen Erweiterungsoperator, der die stückweisen Polynome außerhalb ihres ursprünglichen Trägers auswertet, zu ersetzen. Dies ebnet den Weg für eine Erweiterung der Stabilisierung auf nicht-lineare Erhaltungsgleichungen.
+
+Desweiteren haben wir der Stabilisierung im Rahmen der Review den Namen \textit{Domain of Dependence (DoD)} stabilization, zu deutsch Abhängigkeitsgebiet-Stabilisierung, gegeben.  Wir haben diesen Namen aus der folgenden Überlegung heraus gewählt: Die DoD-Stabilisierung führt Strafterme ein, die die Masse zwischen kleinen Cut Cells und ihren Nachbarn auf physikalische Weise verschieben: Innerhalb eines Zeitschritts wird Masse von den Einflussnachbarn kleiner Cut Cells durch die Cut Cells zu ihren Ausflussnachbarn transportiert. Auf diese Weise stellen wir die richtige Abhängigkeit der Ausflussnachbarn wieder her und schaffen eine stabile Aktualisierung der kleinen Cut Cell für die explizite Standardzeitschrittweite.
+
+Im Anschluss an die Review haben wir weiter daran gearbeitet die DoD-Stabilisierung von linearen Erhaltungsgleichungen auf nicht-lineare Erhaltungsgleichungen zu erweitern. Hierbei haben wir uns im ersten Schritt auf die Burgers-Gleichung in 1D konzentriert. Für eine Erweiterung auf nicht-lineare Gleichungen war es ein essenzieller Schritt die unterschiedlichen Flussrichtungen zu berücksichtigen. Nachdem wir unsere Stabilisierungsterme dementsprechend angepasst haben, können wir gute numerische Ergebnisse für die Burgers-Gleichung unter Verwendung von stückweise konstanten Polynomen vorweisen. Desweiteren können wir für allgemeine skalare Erhaltungsgleichungen ein Monotonie-Resultat beweisen. 
+
+Fast parallel haben wir in 1D an der Erweiterung der Stabilisierung von stückweise linearen Ansatzfunktionen auf Ansatzfunktionen höheren Grades gearbeitet. Hierbei lag der Fokus zunächst auf der linearen Advektionsgleichung. Zu Beginn sah es so aus als wären hierfür keine zusätzlichen Schritte nötig, sodass wir die bereits existierende Stabilisierung auch für Ansatzräume höherer Ordnung verwenden können. Im Laufe der numerischen Tests stellte sich allerdings heraus, dass die existierende Stabilisierung bei höheren Polynomgraden zu instabilem Verhalten führt, sobald die Cut Cells etwas größer werden (Cut Cell Größe = $0.1h$, mit $h$ Gitterweite der kartesischen Zellen). Bei weiteren theoretischen Untersuchungen stellten wir fest, dass die semi-diskrete L$^2$-Stabilität durch die aktuelle Formulierung zerstört wird und wir deshalb einen zusätzlichen Volumenterm brauchen, um die L$^2$-Stabilität wiederherzustellen. Dieser zusätzliche Volumenterm ist dafür zuständig die Masseverteilung innerhalb der Nachbarn der Cut Cells zu korrigieren. Mithilfe dieses zusätzlichen Terms waren wir in der Lage die L$^2$-Stabilität im semi-diskreten Setting für die lineare Advektionsgleichung zu beweisen. Die numerischen Ergebnisse zeigten anschließend ebenfalls die richtigen Konvergenzordnungen und stabile Verhalten unabhängig von der Größe der Cut Cells.
+
+Ein weiteres Projekt gegen Ende des zweiten Jahres war die Entwicklung des 2D Codes für die Lösung von Euler-Gleichungen höherer Ordnung auf Standardgittern, d.h. ohne Cut Cells. Hierfür verwenden wir erneut die C++-Bibliothek \textbf{DUNE}, da sie bereits viele nützliche Features mitliefert und ein gutes Grundgerüst für unsere Bedürfnisse bietet.
+
+Im kommenden Jahr wollen wir die unterschiedlichen Projekte zusammenführen. Wir planen die Stabilisierung in 1D auf nicht-lineare Gleichungen unter Verwendung von Ansatzräumen höherer Polynomgrade zu erweitern. Anschließend wollen wir die Stabilisierung auf (nicht-lineare) Systeme hyperbolischer Gleichung erweitern. Als langfristiges Ziel sehen wir nach wie vor die Euler-Gleichungen in zwei Dimensionen für beliebig hohe Polynomgrade. 
 \begin{thebibliography}{99.}
-\bibitem{paper}      
-C. Engwer, S. May, C. N\"u\ss ing, and F. Streitb\"urger,
-      \newblock A stabilized discontinuous Galerkin cut cell method for discretizing the linear transport equation.
-      \newblock arXiv:1906.05642,
-      \newblock (2019)
-\bibitem{proceeding}      
-F. Streitb\"urger, C. Engwer, S. May, and C. N\"u\ss ing,
-      \newblock Monotonicity considerations for stabilized DG cut cell schemes for the unsteady advection equation
-      \newblock arXiv:1912.11933,
-      \newblock (2019)
+\vspace*{-0.05cm}
+    \bibitem{May2020}
+      C. Engwer, S. May, C. N\"u\ss ing, F. Streitb\"urger
+      \newblock A stabilized discontinuous Galerkin cut cell method for discretizing the linear transport equation. 
+      \newblock SIAM J. Sci. Comput., 42(6):A3677--A3703,
+      2020.
 \end{thebibliography}
 
-
+\newpage
 \section{Leistungen im Promotionsstudiengang}
 
 \begin{tabular}{l|l|l|l|l}
@@ -191,16 +135,16 @@ F. Streitb\"urger, C. Engwer, S. May, and C. N\"u\ss ing,
 \hdashline
 & & & & \\
 \multirow{-2}{*}{\textit{Publikation:} A stabilized DG} & && &\\
-\multirow{-2}{*}{ cut cell method for discretizing the} & & & &\\
-\multirow{-2}{*}{ linear transport equation} & \multirow{-2}{*}{Dezember 20} & \multirow{-2}{*}{ } & \multirow{-2}{*}{-} & \\
+\multirow{-2}{*}{ cut cell method for discretizing the} &  \multirow{-2}{*}{Dezember 20} & & \multirow{-2}{*}{-} &\\
+\multirow{-2}{*}{ linear transport equation} & & \multirow{-2}{*}{ } &  & \\
 
     \rowcolor{light-gray}  \multicolumn{5}{c}{\textbf{Leistungen	wissenschaftlicher	Weiterbildung}} \\
 \hline \hline
-& & & & \\
+- & - & - & - & - \\
     \rowcolor{light-gray}   \multicolumn{5}{c}{\textbf{Erwerb	überfachlicher Kompentenzen}} \\
 \hline \hline
  & & & & \\
-\multirow{-2}{*}{\textit{Tutor:} Numerik II} & \multirow{-2}{*}{SS 19} & \multirow{-2}{*}{ } & \multirow{-2}{*}{C. Kreuzer} & \\ 
+\multirow{-2}{*}{\textit{Tutor:} Numerik II} & \multirow{-2}{*}{SS 20} & \multirow{-2}{*}{ } & \multirow{-2}{*}{C. Kreuzer} & \\ 
 \hline
 \end{tabular}
 
