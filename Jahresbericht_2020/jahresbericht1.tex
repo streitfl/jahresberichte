@@ -98,13 +98,13 @@ Mat.Nr.: 165759,& E-Mail: \href{mailto:florian.streitbuerger@math.tu-dortmund.de
 \end{center}}
 \vspace{1cm}
 \section{Forschung}
-Im zweiten Jahr meiner Promotion unter Betreuung von JProf. Dr. Sandra May habe ich mich mit der Weiterentwicklung der Stabilisierungsterme zum Lösen von hyperbolischen Erhaltungsgleichungen unter Verwendung von unstetigen Galerkin Verfahren auf Cut-Cell-Gittern beschäftigt. Zu Beginn des Jahres habe ich mich im Zuge dessen mit der Review zu \cite{May2020} beschäftigt. Hierbei war es möglich in der Formulierung der Stabilisierung einen Trajektorien-Operator, der die Trajektorien innerhalb einer Zelle von der Ausfluss- bis zur Einfluss-Kante zurückverfolgt, durch einen Erweiterungsoperator, der die stückweisen Polynome außerhalb ihres ursprünglichen Trägers auswertet, zu ersetzen. Dies ebnet den Weg für eine Erweiterung der Stabilisierung auf nicht-lineare Erhaltungsgleichungen.
+Im zweiten Jahr meiner Promotion unter der Betreuung von JProf. Dr. Sandra May habe ich mich mit der Weiterentwicklung der Stabilisierungsterme zum Lösen von hyperbolischen Erhaltungsgleichungen unter Verwendung von unstetigen Galerkin Verfahren auf Cut-Cell-Gittern beschäftigt. Zu Beginn des Jahres habe ich mich im Zuge dessen mit der Review zu \cite{May2020} beschäftigt. Hierbei war es möglich in der Formulierung der Stabilisierung einen Trajektorien-Operator, der die Trajektorien innerhalb einer Zelle von der Ausfluss- bis zur Einfluss-Kante zurückverfolgt, durch einen Erweiterungsoperator, der die stückweisen Polynome außerhalb ihres ursprünglichen Trägers auswertet, zu ersetzen. Dies ebnet den Weg für eine Erweiterung der Stabilisierung auf nicht-lineare Erhaltungsgleichungen.
 
 Desweiteren haben wir der Stabilisierung im Rahmen der Review den Namen \textit{Domain of Dependence (DoD)} stabilization, zu deutsch Abhängigkeitsgebiet-Stabilisierung, gegeben.  Wir haben diesen Namen aus der folgenden Überlegung heraus gewählt: Die DoD-Stabilisierung führt Strafterme ein, die die Masse zwischen kleinen Cut Cells und ihren Nachbarn auf physikalische Weise verschieben: Innerhalb eines Zeitschritts wird Masse von den Einflussnachbarn kleiner Cut Cells durch die Cut Cells zu ihren Ausflussnachbarn transportiert. Auf diese Weise stellen wir die richtige Abhängigkeit der Ausflussnachbarn wieder her und schaffen eine stabile Aktualisierung der kleinen Cut Cell für die explizite Standardzeitschrittweite.
 
 Im Anschluss an die Review haben wir weiter daran gearbeitet die DoD-Stabilisierung von linearen Erhaltungsgleichungen auf nicht-lineare Erhaltungsgleichungen zu erweitern. Hierbei haben wir uns im ersten Schritt auf die Burgers-Gleichung in 1D konzentriert. Für eine Erweiterung auf nicht-lineare Gleichungen war es ein essenzieller Schritt die unterschiedlichen Flussrichtungen zu berücksichtigen. Nachdem wir unsere Stabilisierungsterme dementsprechend angepasst haben, können wir gute numerische Ergebnisse für die Burgers-Gleichung unter Verwendung von stückweise konstanten Polynomen vorweisen. Desweiteren können wir für allgemeine skalare Erhaltungsgleichungen ein Monotonie-Resultat beweisen. 
 
-Fast parallel haben wir in 1D an der Erweiterung der Stabilisierung von stückweise linearen Ansatzfunktionen auf Ansatzfunktionen höheren Grades gearbeitet. Hierbei lag der Fokus zunächst auf der linearen Advektionsgleichung. Zu Beginn sah es so aus als wären hierfür keine zusätzlichen Schritte nötig, sodass wir die bereits existierende Stabilisierung auch für Ansatzräume höherer Ordnung verwenden können. Im Laufe der numerischen Tests stellte sich allerdings heraus, dass die existierende Stabilisierung bei höheren Polynomgraden zu instabilem Verhalten führt, sobald die Cut Cells etwas größer werden (Cut Cell Größe = $0.1h$, mit $h$ Gitterweite der kartesischen Zellen). Bei weiteren theoretischen Untersuchungen stellten wir fest, dass die semi-diskrete L$^2$-Stabilität durch die aktuelle Formulierung zerstört wird und wir deshalb einen zusätzlichen Volumenterm brauchen, um die L$^2$-Stabilität wiederherzustellen. Dieser zusätzliche Volumenterm ist dafür zuständig die Masseverteilung innerhalb der Nachbarn der Cut Cells zu korrigieren. Mithilfe dieses zusätzlichen Terms waren wir in der Lage die L$^2$-Stabilität im semi-diskreten Setting für die lineare Advektionsgleichung zu beweisen. Die numerischen Ergebnisse zeigten anschließend ebenfalls die richtigen Konvergenzordnungen und stabile Verhalten unabhängig von der Größe der Cut Cells.
+Fast parallel haben wir in 1D an der Erweiterung der Stabilisierung von stückweise linearen Ansatzfunktionen auf Ansatzfunktionen höherer Ordnung gearbeitet. Hierbei lag der Fokus zunächst auf der linearen Advektionsgleichung. Zu Beginn sah es so aus als wären hierfür keine zusätzlichen Schritte nötig, sodass wir die bereits existierende Stabilisierung auch für Ansatzräume höherer Ordnung verwenden können. Im Laufe der numerischen Tests stellte sich allerdings heraus, dass die existierende Stabilisierung bei höheren Polynomgraden zu instabilem Verhalten führt, sobald die Cut Cells etwas größer werden (Cut Cell Größe = $0.1h$, mit $h$ Gitterweite der kartesischen Zellen). Bei weiteren theoretischen Untersuchungen stellten wir fest, dass die semi-diskrete L$^2$-Stabilität durch die aktuelle Formulierung zerstört wird und wir deshalb einen zusätzlichen Volumenterm brauchen, um die L$^2$-Stabilität wiederherzustellen. Dieser zusätzliche Volumenterm ist dafür zuständig die Masseverteilung innerhalb der Nachbarn der Cut Cells zu korrigieren. Mithilfe dieses zusätzlichen Terms waren wir in der Lage die L$^2$-Stabilität im semi-diskreten Setting für die lineare Advektionsgleichung zu beweisen. Die numerischen Ergebnisse zeigten anschließend ebenfalls die richtigen Konvergenzordnungen und stabile Verhalten unabhängig von der Größe der Cut Cells.
 
 Ein weiteres Projekt gegen Ende des zweiten Jahres war die Entwicklung des 2D Codes für die Lösung von Euler-Gleichungen höherer Ordnung auf Standardgittern, d.h. ohne Cut Cells. Hierfür verwenden wir erneut die C++-Bibliothek \textbf{DUNE}, da sie bereits viele nützliche Features mitliefert und ein gutes Grundgerüst für unsere Bedürfnisse bietet.
 
@@ -119,38 +119,43 @@ Im kommenden Jahr wollen wir die unterschiedlichen Projekte zusammenführen. Wir 
 \end{thebibliography}
 
 \newpage
-\section{Leistungen im Promotionsstudiengang}
 
-\begin{tabular}{l|l|l|l|l}
- \hline 
-    \rowcolor{gray!30}
- & \textbf{Semester/}  &  &  \textbf{Name des} &  \\
-    \rowcolor{gray!30}    \multirow{-2}{*}{\textbf{Leistung}} & \textbf{Jahr} & \multirow{-2}{*}{\textbf{Anl.}} & \textbf{Veranstalters} & \multirow{-2}{*}{\textbf{Unterschrift}} \\
-\hline \hline
-    \rowcolor{light-gray}  \multicolumn{5}{c}{\textbf{Promotionsnahe Leistungen}} \\
-\hline \hline
-& & & & \\
-\multirow{-2}{*}{\textit{Teilnahme Konferenz:} Finite Volumes } & && &\\
-\multirow{-2}{*}{ for Complex Applications IX} & \multirow{-2}{*}{Juni 20} & \multirow{-2}{*}{} & \multirow{-2}{*}{-} & \\
-\hdashline
-& & & & \\
-\multirow{-2}{*}{\textit{Publikation:} A stabilized DG} & && &\\
-\multirow{-2}{*}{ cut cell method for discretizing the} &  \multirow{-2}{*}{Dezember 20} & & \multirow{-2}{*}{-} &\\
-\multirow{-2}{*}{ linear transport equation} & & \multirow{-2}{*}{ } &  & \\
+\includepdf[pages=1]{jahresbericht_FS_signed_kreuzer.pdf}
+%\begin{comment}
+%\section{Leistungen im Promotionsstudiengang}
+%
+%\begin{tabular}{l|l|l|l|l}
+% \hline 
+%    \rowcolor{gray!30}
+% & \textbf{Semester/}  &  &  \textbf{Name des} &  \\
+%    \rowcolor{gray!30}    \multirow{-2}{*}{\textbf{Leistung}} & \textbf{Jahr} & \multirow{-2}{*}{\textbf{Anl.}} & \textbf{Veranstalters} & \multirow{-2}{*}{\textbf{Unterschrift}} \\
+%\hline \hline
+%    \rowcolor{light-gray}  \multicolumn{5}{c}{\textbf{Promotionsnahe Leistungen}} \\
+%\hline \hline
+%& & & & \\
+%\multirow{-2}{*}{\textit{Teilnahme Konferenz:} Finite Volumes } & && &\\
+%\multirow{-2}{*}{ for Complex Applications IX} & \multirow{-2}{*}{Juni 20} & \multirow{-2}{*}{} & \multirow{-2}{*}{-} & \\
+%\hdashline
+%& & & & \\
+%\multirow{-2}{*}{\textit{Publikation:} A stabilized DG} & && &\\
+%\multirow{-2}{*}{ cut cell method for discretizing the} &  \multirow{-2}{*}{Dezember 20} & & \multirow{-2}{*}{-} &\\
+%\multirow{-2}{*}{ linear transport equation} & & \multirow{-2}{*}{ } &  & \\
+%
+%    \rowcolor{light-gray}  \multicolumn{5}{c}{\textbf{Leistungen	wissenschaftlicher	Weiterbildung}} \\
+%\hline \hline
+%- & - & - & - & - \\
+%    \rowcolor{light-gray}   \multicolumn{5}{c}{\textbf{Erwerb	überfachlicher Kompentenzen}} \\
+%\hline \hline
+% & & & & \\
+%\multirow{-2}{*}{\textit{Tutor:} Numerik II} & \multirow{-2}{*}{SS 20} & \multirow{-2}{*}{ } & \multirow{-2}{*}{C. Kreuzer} & \\ 
+%\hline
+%\end{tabular}
+%
+%\vfill
+%\hrulefill\hfill\hrulefill\\
+%\hspace*{0.8cm}(JProf. Dr. Sandra May)\hfill(Florian Streitb\"urger)\hspace{1.6cm} 
+%\end{comment}
 
-    \rowcolor{light-gray}  \multicolumn{5}{c}{\textbf{Leistungen	wissenschaftlicher	Weiterbildung}} \\
-\hline \hline
-- & - & - & - & - \\
-    \rowcolor{light-gray}   \multicolumn{5}{c}{\textbf{Erwerb	überfachlicher Kompentenzen}} \\
-\hline \hline
- & & & & \\
-\multirow{-2}{*}{\textit{Tutor:} Numerik II} & \multirow{-2}{*}{SS 20} & \multirow{-2}{*}{ } & \multirow{-2}{*}{C. Kreuzer} & \\ 
-\hline
-\end{tabular}
-
-\vfill
-\hrulefill\hfill\hrulefill\\
-\hspace*{0.8cm}(JProf. Dr. Sandra May)\hfill(Florian Streitb\"urger)\hspace{1.6cm} 
 
 \end{document}
 
